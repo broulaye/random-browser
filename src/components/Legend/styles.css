@@ -1,0 +1,23 @@
+.legend {
+  display: flex;
+  flex-direction: row;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  align-items: center;
+}
+
+img {
+  height: 5rem;
+  width: 5rem;
+}
+
+label {
+  margin-top: 1rem;
+  font-weight: 800;
+  color: black;
+  font-size: 150%;
+}

@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import Spinner from './components/Spinner';
+import RepeatButton from './components/RepeatButton';
+import Legend from './components/Legend';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this._child.forceUpdateHandler();
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Legend />
+        <div className="spinner-container">
+          <Spinner ref={(child) => { this._child = child; }} timer="1200" />
+          <div className="gradient-fade"></div>
+        </div>
+        <RepeatButton onClick={this.handleClick} />
       </div>
     );
   }
